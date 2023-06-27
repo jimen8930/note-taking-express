@@ -7,6 +7,8 @@ const fs = require("fs");
 // To import unique id module to generate new id
 const uuid = require("uuid");
 
+const notesDb =require("./Develop/db/db.json");
+
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -17,6 +19,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 // Middleware function to serve static files
 app.use(express.static("Develop/public"));
+
+
+
 
 
 
