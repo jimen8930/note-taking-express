@@ -13,13 +13,24 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-// Middleware for the parsing of JSON data
+// Middleware function for the parsing of JSON data
 app.use(express.json());
-// Middleware for the parsing of URL encoded data
+// Middleware function for the parsing of URL encoded data
 app.use(express.urlencoded({extended: true}));
 // Middleware function to serve static files
 app.use(express.static("Develop/public"));
 
+// Get route that sends back the index.html file
+app.get('/', (req, res) => 
+res.sendFile(path.join(__dirname, 'Develop/public/index.html'))
+);
+
+// Get route that sends back the note.html file
+app.get('/', (req, res) => 
+res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
+);
+
+// Get request 
 
 
 
