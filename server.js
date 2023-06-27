@@ -40,6 +40,7 @@ res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
 
 
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
+// App.listen is used to spin up our local server
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+);
