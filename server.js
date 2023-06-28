@@ -7,11 +7,11 @@ const fs = require("fs");
 // To import unique id module to generate new id
 const uuid = require("uuid");
 
-const notesDb =require("./Develop/db/db.json");
-
-const PORT = process.env.PORT || 3001;
+const noteData =require("./Develop/db/db.json");
 
 const app = express();
+
+const PORT = process.env.PORT || 3001;
 
 // Middleware function for the parsing of JSON data
 app.use(express.json());
@@ -31,6 +31,25 @@ res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
 );
 
 // Get request 
+  app.get('/api/notes', (req, res) => {
+    res.json(db);
+  });
+
+  app.post("/api/notes", (req, res => {
+    const { title, text } = req.body;
+    if (title && text) {
+      const newNote = {
+        title: title,
+        text: text,
+        id: uuid(),
+      };
+      db.push(newNote);
+
+      }
+    }
+      ));
+  
+
 
 
 
