@@ -26,13 +26,13 @@ res.sendFile(path.join(__dirname, 'Develop/public/index.html'))
 );
 
 // Get route that sends back the note.html file
-app.get('/', (req, res) => 
+app.get('/notes', (req, res) => 
 res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
 );
 
 // Get route request for api/notes and send backs as parsed json
   app.get('/api/notes', (req, res) => {
-    res.json(db);
+    res.json(noteData);
   });
 
   app.post("/api/notes", (req, res) => {
@@ -48,10 +48,10 @@ res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
           console.error(err);
         } else {
           const parseData = JSON.parse(data);
-          parsedData.push(newReview);
+          parsedData.push(newNote);
 
           fs.writeFile('./Develop/db/db.json', JSON.stringify(parseData, null, 4), 
-      (writeErr) =>
+      (writeErr) => 
       writeErr
         ? console.error(writeErr)
         : console.info("Succesfully updated data")
