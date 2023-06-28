@@ -43,6 +43,14 @@ res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
         text: text,
         id: uuid(),
       };
+      fs.readFile('./Develop/db/db.json', 'utf-8', (err, data) => {
+        if (err) {
+          console.error(err);
+        } else {
+          const parseData = JSON.parse(data);
+        }
+      });
+      
       db.push(newNote);
 
       fs.writeFile('./Develop/db/db.json', JSON.stringify(db), (err) => {
