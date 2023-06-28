@@ -30,7 +30,7 @@ app.get('/', (req, res) =>
 res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
 );
 
-// Get request 
+// Get route request for api/notes and send backs as parsed json
   app.get('/api/notes', (req, res) => {
     res.json(db);
   });
@@ -45,9 +45,17 @@ res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
       };
       db.push(newNote);
 
-      }
-    }
-      ));
+      fs.writeFile('./Develop/db/db.json', JSON.stringify(db), (err) => {
+        if (err) {
+          console.err(err);
+          res.statusCode(500).json({error: 'Failed to write to the database.'});
+          return;
+        }
+        res.json(newNote);
+      });
+
+      };
+    }));
   
 
 
