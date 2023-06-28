@@ -27,8 +27,9 @@ res.sendFile(path.join(__dirname, 'Develop/public/index.html'))
 
 // Get route that sends back the note.html file
 app.get('/notes', (req, res) => 
-res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
+  res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
 );
+
 
 // Get route request for api/notes and send backs as parsed json
   app.get('/api/notes', (req, res) => {
@@ -48,7 +49,7 @@ res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
           console.error(err);
         } else {
           const parseData = JSON.parse(data);
-          parsedData.push(newNote);
+          parseData.push(newNote);
 
           fs.writeFile('./Develop/db/db.json', JSON.stringify(parseData, null, 4), 
       (writeErr) => 
@@ -65,7 +66,7 @@ res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
         body: newNote
       };
   
-      console.log(reponse);
+      console.log(response);
       res.status(201).json(response);
     } else {
       res.status(500).json('Error in posting data');
