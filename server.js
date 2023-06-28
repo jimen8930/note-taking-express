@@ -35,7 +35,7 @@ res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
     res.json(db);
   });
 
-  app.post("/api/notes", (req, res => {
+  app.post("/api/notes", (req, res) => {
     const { title, text } = req.body;
     if (title && text) {
       const newNote = {
@@ -48,32 +48,29 @@ res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
           console.error(err);
         } else {
           const parseData = JSON.parse(data);
-        }
-      });
-      
-      db.push(newNote);
+          parsedData.push(newReview);
 
-      fs.writeFile('./Develop/db/db.json', JSON.stringify(db), (err) => {
-        if (err) {
-          console.err(err);
-          res.statusCode(500).json({error: 'Failed to write to the database.'});
-          return;
-        }
-        res.json(newNote);
+          fs.writeFile('./Develop/db/db.json', JSON.stringify(parseData, null, 4), 
+      (writeErr) =>
+      writeErr
+        ? console.error(writeErr)
+        : console.info("Succesfully updated data")
+      );
+
+      }
       });
 
+      const response = {
+        status: 'success',
+        body: newNote
       };
-    }));
   
-
-
-
-
-
-
-
-
-
+      console.log(reponse);
+      res.status(201).json(response);
+    } else {
+      res.status(500).json('Error in posting data');
+    }
+   });
 
 // App.listen is used to spin up our local server
 app.listen(PORT, () =>
