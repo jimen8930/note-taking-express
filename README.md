@@ -42,6 +42,8 @@ Contributions to the README Generator are welcome! Here are the guidelines for t
 
 ## Tests
 There is currently no unit testing yet written for this application.
+## Live URL deployed application 
+https://note-taker-express23-82d2adb61c2c.herokuapp.com/
 
 ## Questions
 If you have any questions, feel free to reach out to me:
