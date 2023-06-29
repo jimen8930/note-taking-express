@@ -20,16 +20,15 @@ app.use(express.urlencoded({extended: true}));
 // Middleware function to serve static files
 app.use(express.static("Develop/public"));
 
+// Get route that sends back the note.html file
+app.get('/notes', (req, res) => 
+  res.sendFile(path.join(__dirname, 'Develop/public/notes.html'))
+);
+
 // Get route that sends back the index.html file
 app.get('/', (req, res) => 
 res.sendFile(path.join(__dirname, 'Develop/public/index.html'))
 );
-
-// Get route that sends back the note.html file
-app.get('/notes', (req, res) => 
-  res.sendFile(path.join(__dirname, 'Develop/public/note.html'))
-);
-
 
 // Get route request for api/notes and send backs as parsed json
   app.get('/api/notes', (req, res) => {
