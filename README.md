@@ -4,6 +4,14 @@
   ## Description
   This application was designed to give users a place to store notes to help them organize their thoughts and to keep track of tasks they need to complete. It is powered by Express and JavaScript and implements an imitation database using a json file (db.json) to save and retrieve data. This application connects the backend to the frontend through the use of GET, POST, and DELETE requests within Express which allows users to save, retrieve, post new data, and delete data from the application by use of the front end user interface (UI).
 
+<img width="618" alt="Screenshot 2023-06-29 at 7 09 50 PM" src="https://github.com/jimen8930/note-taking-express/assets/128547615/44a7a1c5-547c-4013-82ae-530d40ee19fa">
+
+![image](https://github.com/jimen8930/note-taking-express/assets/128547615/ad70e9c7-2f52-417e-9e0d-1df74a016b06)
+
+<img width="1081" alt="Screenshot 2023-06-29 at 10 00 15 PM" src="https://github.com/jimen8930/note-taking-express/assets/128547615/8b64f05c-325d-46a6-8af7-8fc841687f2c">
+
+
+
   ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
