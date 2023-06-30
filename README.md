@@ -38,7 +38,7 @@ Once the server is running, users can then access the front end of the applicati
 ## Usage
 This application is powered by Express meaning for it to function properly, there needs to be a server running in the background. To start the server, navigate to the directory of the application, install all dependencies (npm i), then type the command npm start (or node index.js). A message should then display in the command line saying "App listening at http://localhost:3001 🚀". Once the server is running, then navigate to the front end of the application directly from the command line by holding command and clicking the link http://localhost:3001. From there, users can pull up any existing notes saved to the database or create new notes, which once saved will be pushed to the database and persisted.
 Here is step by step video tutorial.
-https://youtu.be/M0wGV5X4Mu0
+https://youtu.be/SEf3A1P-Cbg
 
 ## License
 https://opensource.org/licenses/MIT
