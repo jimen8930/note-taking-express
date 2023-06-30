@@ -21,7 +21,7 @@
 - [Questions](#questions)
 
 ## Installation
-Clone the repo: git clone https://github.com/rmessett15/Note-Taker.git
+Clone the repo
 
 Open in VS Code. If you do not have VS code you must install it.
 
