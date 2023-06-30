@@ -78,7 +78,38 @@ res.sendFile(path.join(__dirname, 'Develop/public/index.html'))
       res.status(500).json('Error in posting data');
     }
    });
+
+   app.delete("/api/notes/:id", (req, res) => {
+    const noteId = req.params.id;
+    fs.readFile('./Develop/db/db.json', 'utf-8', (err, data) => {
+      if(err) {
+        console.err(err);
+
+        res.status(500).json('Error reading data');
+      } else {
+        const parseData = JSON.parse(data);
+        const updatedData= parseData.filter((note) => note.id !==noteId);
+
+        fs.writeFile('./Develop/db/db.json', JSON.stringify(updatedData, null, 4),
+        (writeErr) => 
+        writeErr
+        ? console.err(err)
+        : console.info("Succesfully updated data")
+        );
+
+        const response = {
+          status: 'success',
+          body: updatedData
+        };
+
+        console.log(response);
+        res.status(200).json(response);
+
+      }
+    })
+   })
    
+
 
 // App.listen is used to spin up our local server
 app.listen(PORT, () =>
