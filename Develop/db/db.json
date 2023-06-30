@@ -1,9 +1,5 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
         "title": "Test 1",
         "text": "Needs to be in the file db.json",
         "id": "99b9470e-8dd9-448c-9a7b-7d3a2a2eeff9"
